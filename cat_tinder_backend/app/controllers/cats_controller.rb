@@ -14,9 +14,13 @@ class CatsController < ApplicationController
     end
   
     def update
+        cat = Cat.find(params[:id])
+        cat.update(cat_params)
     end
   
     def destroy
+        cat = Cat.find(params[:id])
+        cat.destroy
     end
 
     private
