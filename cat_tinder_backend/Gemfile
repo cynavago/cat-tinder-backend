@@ -49,3 +49,7 @@ gem "rspec-rails", "~> 4.0"
 
 #  ADDING CORS TO OUR APPLICATION
 gem 'rack-cors', :require => 'rack/cors'
+
+gem "react-rails", "~> 2.6"
+
+gem "devise", "~> 4.7"

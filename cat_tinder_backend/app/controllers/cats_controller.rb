@@ -1,4 +1,4 @@
-class CatsController < ApplicationController
+class CatsController < ApplicationController    
     def index
         cats = Cat.all
         render json: cats
@@ -8,7 +8,7 @@ class CatsController < ApplicationController
         cat = Cat.create(cat_params)
         if cat.valid?
             render json: cat
-        else
+            else
             render json: cat.errors, status: :unprocessable_entity
         end
     end
@@ -23,8 +23,16 @@ class CatsController < ApplicationController
         cat.destroy
     end
 
+    def show
+        cat = Cat.find(params[:id])
+        render json: cat
+    end
+
     private
-  def cat_params
-    params.require(:cat).permit(:name, :age, :enjoys, :story, :image)
-  end
+    def cat_params
+        params.require(:cat).permit(:name, :age, :enjoys, :story, :image)
+    end
+
+    # skip_before_action :verify_authenticity_token
+
 end
